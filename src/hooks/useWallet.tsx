@@ -39,7 +39,7 @@ export const useWallet = () => {
 
   const calculateBalance = (transactions: WalletTransaction[]) => {
     return transactions.reduce((total, tx) => {
-      if (tx.type === 'deposit') {
+      if (tx.type === 'deposit' || tx.type === 'Credit' || tx.type === 'reload') {
         return total + tx.amount;
       } else {
         return total - tx.amount;
